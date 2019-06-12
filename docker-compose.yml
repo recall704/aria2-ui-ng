@@ -1,0 +1,14 @@
+version: '3'
+services:
+  aria2:
+    image: win7/aria2-ui-ng:v1.0.0
+    restart: always
+    ports:
+      - "6800:6800"
+      - "6880:80"
+      - "6888:8080"
+    environment:
+      SECRET: recall
+    volumes:
+      - ./conf:/conf
+      - ./data:/data
