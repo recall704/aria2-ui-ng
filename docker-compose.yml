@@ -4,11 +4,20 @@ services:
     image: win7/aria2-ui-ng:v1.0.0
     restart: always
     ports:
+      # port for aria2
       - "6800:6800"
+      # port for AriaNg
       - "6880:80"
-      - "6888:8080"
     environment:
       SECRET: recall
     volumes:
       - ./conf:/conf
       - ./data:/data
+
+  gohttpserver:
+    image: codeskyblue/gohttpserver
+    restart: always
+    ports:
+      - "8888:8000"
+    volumes:
+      - ./data:/app/public
